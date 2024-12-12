@@ -1,0 +1,27 @@
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width==device-width, intial-scale=1.0">
+     <title>Project 03-04</title>
+     <!-- Add the script with defer attribute -->
+     <script src="project03-04.js" defer></script>
+</head>
+function generateReviews() {
+     for (let i = 0; i < reviewers.length; i++) {
+         let reviewCode = "";
+         if (reviewType[i] === "P") { 
+             reviewCode += "<table class='prime'>";
+         } else if (reviewType[i] === "N") {
+             reviewCode += "<table class='new'>";
+         } else {
+              reviewCode += "<table>";
+         }
+         reviewCode += `
+            <tr><th>${reviewTitles[i]}</th></tr>
+            <tr><td>${reviewers[i]}</td></tr>
+            <tr><td>${reviewDates[i]}</td></tr>
+            <tr><td>${reviews[i]}</td></tr>
+        </table>
+        `;
+        document.getElementsByTagName("article")[0].insertAdjacentHTML("beforeend", reviewCode);
+     }
+}
